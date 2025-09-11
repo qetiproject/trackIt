@@ -1,0 +1,11 @@
+<div class="max-w-md mx-auto mt-8 p-4 bg-white shadow-md rounded-lg">
+  <h2 class="text-xl font-bold mb-4 text-gray-800">My Todos</h2>
+
+  <ul class="space-y-2">
+    @for (item of todos; track item.id) {
+      <li class="flex items-center justify-between p-3 bg-gray-100 rounded hover:bg-gray-200 transition">
+        <span class="text-gray-700">{{ item.todo }}</span>
+    </li>
+    }
+  </ul>
+</div>
