@@ -1,3 +1,11 @@
+@if (loading) {
+  <div class="fixed inset-0 flex items-center justify-center bg-white/60 z-[1000]">
+    <div
+      class="h-8 w-8 sm:h-10 sm:w-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"
+    ></div>
+  </div>
+}
+
 <div class="max-w-md mx-auto mt-8 p-4 bg-white shadow-md rounded-lg">
   <h2 class="text-xl font-bold mb-4 text-gray-800">My Todos</h2>
 
@@ -5,7 +13,19 @@
     @for (item of todos; track item.id) {
       <li class="flex items-center justify-between p-3 bg-gray-100 rounded hover:bg-gray-200 transition">
         <span class="text-gray-700">{{ item.todo }}</span>
+        <span 
+          class="text-sm font-semibold"
+          [ngClass]="{'text-green-500': item.completed, 'text-red-500': !item.completed}"
+        >
+          {{ item.completed ? 'Done' : 'Inprogress' }}
+        </span>
+        <!-- <button [ngStyle]="{'background-color':'green'}">submit</button>
+        <button [style]="{'background-color': loading ? 'blue' : 'green'}">submit</button> -->
     </li>
     }
   </ul>
 </div>
+
+@if(error) {
+  <p>{{error}}</p>
+}
