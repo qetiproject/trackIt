@@ -16,7 +16,7 @@ export class Todos implements OnInit{
   error: string = '';
   todos: Todo[] = [];
   http = inject(HttpClient);
-
+    
   getTodos() {
     this.loading = true;
     this.http.get<TodoResultData>(`${environment.baseUrl}/todos`)
